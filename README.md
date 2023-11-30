@@ -12,7 +12,8 @@ Docker to handle all of the NSE backend services.
 - Change listening on `localhost:[PORT]` to `0.0.0.0:[PORT]` for all of the services.
 - For some services, disable the `engine.Use(checkIP)`.
   
-  - **golang_jwe_authentication**
+  - **Golang_jwe_authentication Service**
+    
    ```golang
     func main() {
     	engine := gin.Default()
@@ -25,7 +26,9 @@ Docker to handle all of the NSE backend services.
     	engine.Run("0.0.0.0:" + common.Global.GetPort())
     }
     ```
-  - **notification**
+   
+  - **Notification Service**
+    
    ```golang
     func main() {
     	engine := gin.Default()
@@ -39,6 +42,8 @@ Docker to handle all of the NSE backend services.
     	engine.Run("0.0.0.0:4000")
     }
     ```
+- WSL Configuration file
+  > To manage and optimize the disk space/memory/CPU/etc. used by Linux distributions installed using WSL 2. 
 
 ### Run Docker
 ```Dockerfile
