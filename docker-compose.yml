@@ -1,0 +1,63 @@
+version: '3.8'
+
+services: 
+    nse_driver_golang_backend_service:
+      #Set the name for the container
+      container_name: nse_driver_golang_backend
+      #Set the path to docker file context & docker file name
+      build:
+        context: ../
+        dockerfile: docker/files/nse.Dockerfile
+      #Assign The name of the docker image with the tag
+      image: nse_driver_golang_backend:test
+      ports:
+        - 8080:8080
+      restart: on-failure
+      
+    golang_jwe_token_service:
+      #Set the name for the container
+      container_name: golang_jwe_authentication
+      #Set the path to docker file context& docker file name
+      build:
+        context: ../
+        dockerfile: docker/files/auth.Dockerfile
+      #Assign The name of the docker image with the tag
+      image: golang_jwe_token:test
+      ports:
+        - 2000:2000
+      restart: on-failure
+
+    notification_service:
+      #Set the name for the container
+      container_name: notification
+      #Set the path to docker file context & docker file name
+      build:
+        context: ../
+        dockerfile: docker/files/notify.Dockerfile
+      #Assign The name of the docker image with the tag
+      image: notification:test
+      ports:
+        - 4000:4000
+      restart: on-failure
+
+    order_management_system_service:
+      #Set the name for the container
+      container_name: order_management_system_backend
+      #Set the path to docker file context & docker file name
+      build:
+        context: ../
+        dockerfile: docker/files/oms.Dockerfile
+      #Assign The name of the docker image with the tag
+      image: order_management_system:test
+      ports:
+        - 8000:8000
+      restart: on-failure
+
+# Use default docker network configuration right now
+# networks:
+#   docker_network:
+#     ipam:
+#       driver: default
+#       config:
+#         - subnet: 172.25.5.0/24
+#           gateway: 172.25.5.1
