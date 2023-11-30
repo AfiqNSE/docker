@@ -51,7 +51,7 @@ Docker to handle all of the NSE backend services.
 docker-compose up
 
 # Build specific docker images
-docker build -t [docker-image-name]:[docker-image-tag] -f files/[docker-file-name] ../[docker-build-context-directory]
+docker build -t [docker-image-name]:[docker-image-tag] -f files/[docker-file-name] ..
 ```
 
 ###
