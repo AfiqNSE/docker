@@ -9,7 +9,7 @@ services:
         context: ../
         dockerfile: docker/files/nse.Dockerfile
       #Assign The name of the docker image with the tag
-      image: nse_driver_golang_backend:test
+      image: nse_driver_golang_backend:latest
       ports:
         - 8080:8080
       restart: on-failure
@@ -22,7 +22,7 @@ services:
         context: ../
         dockerfile: docker/files/auth.Dockerfile
       #Assign The name of the docker image with the tag
-      image: golang_jwe_token:test
+      image: golang_jwe_token:latest
       ports:
         - 2000:2000
       restart: on-failure
@@ -35,7 +35,7 @@ services:
         context: ../
         dockerfile: docker/files/notify.Dockerfile
       #Assign The name of the docker image with the tag
-      image: notification:test
+      image: notification:latest
       ports:
         - 4000:4000
       restart: on-failure
@@ -48,12 +48,12 @@ services:
         context: ../
         dockerfile: docker/files/oms.Dockerfile
       #Assign The name of the docker image with the tag
-      image: order_management_system:test
+      image: order_management_system:latest
       ports:
         - 8000:8000
       restart: on-failure
 
-# Use default docker network configuration right now
+# Use default docker network configuration for right now
 # networks:
 #   docker_network:
 #     ipam:
