@@ -1,0 +1,64 @@
+version: '3.8'
+
+services: 
+
+    nse-driver-golang-backend_service:
+      container_name: nse_driver_golang_backend
+      #Set the path to docker file
+      build: ../nse-driver-golang-backend
+      #Assign The name of the docker image with the tag
+      image: nse_driver_golang_backend:v1.0
+      ports:
+        - 8080:8080
+      restart: on-failure
+      networks:
+        docker_network:
+          ipv4_address: 172.25.5.10
+      
+    golang_jwe_token_service:
+      container_name: golang_jwe_token
+      #Set the path to docker file
+      build: ../golang_jwe_authentication
+      #Assign The name of the docker image with the tag
+      image: golang_jwe_token:v1.0
+      ports:
+        - 2000:2000
+      restart: on-failure
+      networks:
+        docker_network:
+          ipv4_address: 172.25.5.20
+    
+    notification_service:
+      container_name: notification
+      #Set the path to docker file
+      build: ../notification
+      #Assign The name of the docker image with the tag
+      image: notification:v1.0
+      ports:
+        - 4000:4000
+      restart: on-failure
+      networks:
+        docker_network:
+          ipv4_address: 172.25.5.30
+
+
+    order_management_system_service:
+      container_name: order_management_system_backend
+      #Set the path to docker file
+      build: ../order_management_system_backend
+      #Assign The name of the docker image with the tag
+      image: order_management_system:v1.0
+      ports:
+        - 8000:8000
+      restart: on-failure
+      networks:
+        docker_network:
+          ipv4_address: 172.25.5.40
+
+networks:
+  docker_network:
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.25.5.0/24
+          gateway: 172.25.5.1
