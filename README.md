@@ -44,7 +44,7 @@ Docker to handle all of the NSE backend services.
     ```
 - WSL Configuration file
   > To manage and optimize the disk space/memory/CPU/etc. used by Linux distributions installed using WSL 2.
-  - Create a new `.wslconfig` file at `C:\Users\{YourUser}`
+  - Create a new `.wslconfig` file at `C:\Users\{YourUser}`, and paste the configuration below.
     
     ```
     # Settings apply across all Linux distros running on WSL 2
@@ -57,7 +57,7 @@ Docker to handle all of the NSE backend services.
     processors=2
     ```
     
-  - Open PowerShell/command line as Administrator.
+  - Open PowerShell/CMD as Administrator, and run the command below.
     > NOTE: Other than Windows Home edition
     ```
     # Close all WSL terminals and run this to fully shut down WSL.
