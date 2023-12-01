@@ -14,7 +14,7 @@ Docker to handle all of the NSE backend services.
   
   - **Golang_jwe_authentication Service**
     
-   ```golang
+    ```golang
     func main() {
     	engine := gin.Default()
       
@@ -29,7 +29,7 @@ Docker to handle all of the NSE backend services.
    
   - **Notification Service**
     
-   ```golang
+    ```golang
     func main() {
     	engine := gin.Default()
     
@@ -43,7 +43,42 @@ Docker to handle all of the NSE backend services.
     }
     ```
 - WSL Configuration file
-  > To manage and optimize the disk space/memory/CPU/etc. used by Linux distributions installed using WSL 2. 
+  > To manage and optimize the disk space/memory/CPU/etc. used by Linux distributions installed using WSL 2.
+  - Create a new `.wslconfig` file at `C:\Users\{YourUser}`
+    
+    ```
+    # Settings apply across all Linux distros running on WSL 2
+    [wsl2]
+    
+    # Limits VM memory to use no more than 4 GB, this can be set as whole numbers using GB or MB
+    memory=4GB 
+    
+    # Sets the VM to use two virtual processors
+    processors=2
+    ```
+    
+  - Open PowerShell/command line as Administrator.
+    > NOTE: Other than Windows Home edition
+    ```
+    # Close all WSL terminals and run this to fully shut down WSL.
+    wsl.exe --shutdown
+    
+    # Replace your Windows user name. This is where Docker stores its VM file.
+    cd C:\Users\{YourUser}\AppData\Local\Docker\wsl\data
+    
+    # Compact the Docker Desktop WSL VM file and you're done.
+    optimize-vhd -Path .\ext4.vhdx -Mode full
+    ```
+    
+    > NOTE: For Windows Home Edition
+    ```
+    # Replace your Windows user name.
+    diskpart
+    select vdisk file="C:\Users\{YourUser}\AppData\local\Docker\wsl\data\ext4.vhdx"
+    attach vdisk readonly
+    compact vdisk
+    detach vdisk
+    ```
 
 ### Run Docker
 ```Dockerfile
