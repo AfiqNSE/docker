@@ -42,7 +42,7 @@ Docker to handle all of the NSE backend services.
     	engine.Run("0.0.0.0:4000")
     }
     ```
-- WSL Configuration file
+- Docker optimization configuration
   > To manage and optimize the disk space/memory/CPU/etc. used by Linux distributions installed using WSL 2.
   - Create a new `.wslconfig` file at `C:\Users\{YourUser}`, and paste the configuration below.
     
