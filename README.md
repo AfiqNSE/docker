@@ -47,8 +47,11 @@ Docker to handle all of the NSE backend services.
 
 ### Run Docker
 ```Dockerfile
-# Build all docker images and create a container to run all docker images
+# Starts the defined services, creating and starting containers as specified in the docker-compose.yml file.
 docker-compose up
+
+# Builds or rebuilds services defined in the docker-compose.yml file. Useful when there are changes in the configuration or Dockerfiles.
+docker-compose build
 
 # Build specific docker images
 docker build -t [docker-image-name]:[docker-image-tag] -f files/[docker-file-name] ..
