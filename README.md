@@ -91,8 +91,13 @@ docker-compose build
 # Build specific docker images
 docker build -t [docker-image-name]:[docker-image-tag] -f files/[docker-file-name] ..
 ```
+ - Example multi-container Docker application using a `docker-compose up`
+   > Docker Images
+   ![image](https://github.com/AfiqNSE/docker/assets/146927713/b7b211f1-6103-428a-8912-97c7e721b5ff)
+   
+   > Docker Multi-Container
+   ![image](https://github.com/AfiqNSE/docker/assets/146927713/be6ef8af-6ebf-4e76-8180-6348c5702b71)
 
-###
 
 
 
