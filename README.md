@@ -81,6 +81,7 @@ Docker to handle all of the NSE backend services.
     ```
 
 ### Run Docker
+> NOTE: Main use is docker-compose up
 ```Dockerfile
 # Starts the defined services, creating and starting containers as specified in the docker-compose.yml file.
 docker-compose up
